@@ -70,6 +70,17 @@ h3{font-size:58px;line-height:1.2;font-weight:500}
 .wm{display:block}
 .tag{font-size:30px;font-weight:300;letter-spacing:.14em;color:rgba(254,254,254,.6);margin-top:26px}
 .big{font-size:100px;line-height:1.08;font-weight:500;letter-spacing:-.01em}
+
+.duo .top-scrim{position:absolute;left:0;right:0;top:0;height:300px;
+  background:linear-gradient(to bottom, rgba(30,42,61,.78), rgba(30,42,61,0))}
+.duo .lab{position:absolute;left:92px;display:inline-flex;align-items:center;gap:18px;
+  background:var(--panel2);border-radius:999px;padding:18px 40px;font-size:40px;font-weight:400;
+  letter-spacing:.02em;box-shadow:0 10px 40px rgba(20,28,42,.45)}
+.duo .lab em{font-style:normal;font-size:24px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(254,254,254,.6)}
+.duo .kick{position:absolute;left:92px;top:112px}
+.duo .foot{position:absolute;left:92px;right:92px;top:1738px;font-size:36px;font-weight:300;
+  color:rgba(254,254,254,.8)}
 #prog{position:fixed;left:0;right:0;bottom:0;height:5px;background:var(--white);opacity:.5;transform-origin:left}
 </style>
 
@@ -185,17 +196,13 @@ h3{font-size:58px;line-height:1.2;font-weight:500}
   </div>
 </div>
 
-<!-- H2 · split · для кого -->
-<div class="scene split" data-s="30.40">
-  <div class="body">
-    <div class="kicker" data-a="30.46,.5,down">для кого</div>
-    <div class="chips mt2">
-      <div class="chip f" data-a="30.56,.5,pop">рестораны</div>
-      <div class="chip f" data-a="30.78,.5,pop">отели</div>
-      <div class="chip f" data-a="31.00,.5,pop">бьюти</div>
-      <div class="chip" data-a="31.96,.5,pop">сервисные пространства</div>
-    </div>
-  </div>
+<!-- H2 · duo · рестораны / отели -->
+<div class="scene duo" data-s="30.40">
+  <div class="top-scrim"></div>
+  <div class="kick kicker" data-a="30.44,.5,down">для кого</div>
+  <div class="lab" style="top:668px" data-a="30.56,.6,pop"><em>01</em>рестораны</div>
+  <div class="lab" style="top:1498px" data-a="30.92,.6,pop"><em>02</em>отели</div>
+  <div class="foot" data-a="31.96,.6,up">бьюти и другие сервисные пространства</div>
 </div>
 
 <!-- I1 · navy · шаги 01–02 -->
