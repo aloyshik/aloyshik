@@ -13,7 +13,7 @@ async def main():
         await pg.wait_for_timeout(1200)
         for i in range(N):
             await pg.evaluate("t=>window.seek(t)", i/FPS)
-            await pg.screenshot(path=f"frames/f{i:05d}.jpg", type="jpeg", quality=92)
+            await pg.screenshot(path=f"frames/f{i:05d}.png", omit_background=True)
             if i%150==0: print(f"{i}/{N}  {time.time()-t0:.0f}s", flush=True)
         await b.close()
     print(f"done {N} frames in {time.time()-t0:.0f}s")
