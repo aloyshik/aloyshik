@@ -1,18 +1,17 @@
-# Как пересобрать ролик
+# Сборка
 
 ```
 pip install imageio-ffmpeg playwright
-python3 slides.py    # HTML-слайды из сценария (тайминги внутри slides.py)
-python3 shoot.py     # рендер PNG 1080x1920 через Chromium
-python3 build.py     # сборка клипов + склейка со звуком исходника
+python3 cut.py       # обрезка пауз + пересчёт таймингов -> voice_cut.wav, phrases_cut.json
+python3 render.py    # 1461 кадр 1080x1920 через Chromium (~2 мин)
+ffmpeg -y -framerate 30 -i frames/f%05d.jpg -i voice_cut.wav \
+  -map 0:v -map 1:a -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p \
+  -c:a aac -b:a 192k -movflags +faststart -shortest iconmade_uniform_v2.mp4
 ```
 
-`asr.py` + `bounds.json` — расшифровка звука (sherpa-onnx, модель
-`sherpa-onnx-whisper-small`), тайминги слайдов взяты из детекта пауз:
-
-```
-ffmpeg -i audio16k.wav -af "silencedetect=noise=-34dB:d=0.16" -f null /dev/null
-```
-
-Чтобы подставить реальные кадры — заменить вызовы `slot(...)` в `slides.py`
-на `<img src="frames/....jpg">` в тех же блоках.
+* `scene.html` — все сцены и тайминги (атрибуты `data-s`, `data-a`, `data-a2`).
+* `engine.js` — детерминированный движок анимации: `window.seek(T)` выставляет
+  состояние всей сцены на момент `T`, поэтому рендер покадровый и стабильный.
+* Пресеты анимаций: `fade`, `up`, `down`, `left`, `pop`, `wipe`, `img`, `dim`, `rise`.
+* Подставить кадры — заменить блоки `<div class="slot">` на `<img src="frames/...">`
+  с тем же `data-a="t,0.9,img"`.
