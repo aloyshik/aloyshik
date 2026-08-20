@@ -22,10 +22,14 @@ body{font-family:'Jost',sans-serif;color:var(--white);-webkit-font-smoothing:ant
 .scrim.band{background:linear-gradient(to bottom, rgba(30,42,61,0) 60%, rgba(30,42,61,.55) 74%, rgba(30,42,61,.92) 88%)}
 
 .body{position:absolute;inset:0;display:flex;flex-direction:column;padding:0 92px}
-.navy  .body{justify-content:center;padding-top:190px;padding-bottom:460px}
-.film  .body{justify-content:flex-end;padding-bottom:460px}
+.navy  .body{justify-content:center;padding-top:260px;padding-bottom:480px}
+.film  .body{justify-content:flex-end;padding-bottom:470px}
 .band  .body{justify-content:flex-start;padding-top:1010px}
-.split .body{justify-content:flex-start;padding-top:1040px}
+.split .body{justify-content:flex-start;padding-top:1160px}
+/* в сплите текстовая полоса всего 1160-1450, поэтому кегли компактнее */
+.split h1{font-size:56px}.split h2{font-size:56px}.split h3{font-size:48px}
+.split .lead{font-size:38px;line-height:1.36}.split .kicker{font-size:25px}
+.split .itx{font-size:46px}.split .mt3{margin-top:34px}.split .mt2{margin-top:30px}
 
 .kicker{font-size:27px;font-weight:500;letter-spacing:.36em;text-transform:uppercase;color:rgba(254,254,254,.58)}
 .rule{width:104px;height:2px;background:var(--white);opacity:.85;transform-origin:left;margin-top:30px}
@@ -71,15 +75,15 @@ h3{font-size:58px;line-height:1.2;font-weight:500}
 .tag{font-size:30px;font-weight:300;letter-spacing:.14em;color:rgba(254,254,254,.6);margin-top:26px}
 .big{font-size:100px;line-height:1.08;font-weight:500;letter-spacing:-.01em}
 
-.duo .top-scrim{position:absolute;left:0;right:0;top:0;height:300px;
+.duo .top-scrim{position:absolute;left:0;right:0;top:260px;height:280px;
   background:linear-gradient(to bottom, rgba(30,42,61,.78), rgba(30,42,61,0))}
 .duo .lab{position:absolute;left:92px;display:inline-flex;align-items:center;gap:18px;
   background:var(--panel2);border-radius:999px;padding:18px 40px;font-size:40px;font-weight:400;
   letter-spacing:.02em;box-shadow:0 10px 40px rgba(20,28,42,.45)}
 .duo .lab em{font-style:normal;font-size:24px;font-weight:500;letter-spacing:.22em;
   text-transform:uppercase;color:rgba(254,254,254,.6)}
-.duo .kick{position:absolute;left:92px;top:268px}
-.duo .foot{position:absolute;left:92px;right:92px;top:1388px;font-size:36px;font-weight:300;
+.duo .kick{position:absolute;left:92px;top:312px}
+.duo .foot{position:absolute;left:92px;right:92px;top:1290px;font-size:36px;font-weight:300;
   color:rgba(254,254,254,.8)}
 #prog{position:fixed;left:0;right:0;bottom:0;height:5px;background:var(--white);opacity:.5;transform-origin:left}
 </style>
@@ -133,11 +137,11 @@ h3{font-size:58px;line-height:1.2;font-weight:500}
 <div class="scene split" data-s="11.93">
   <div class="body">
     <div class="kicker" data-a="12.02,.6,down">а когда наоборот</div>
-    <h2 class="mt" style="font-size:58px">
+    <h2 class="mt">
       <span style="display:block" data-a="12.34">Когда униформа подобрана</span>
       <span style="display:block" data-a="12.54">правильно —</span>
     </h2>
-    <h2 class="mt" style="display:inline-block;font-size:58px">
+    <h2 class="mt" style="display:inline-block">
       <span class="uw"><span data-a="12.98">это всегда чувствуется</span><span class="ub" data-a="13.40,.55,wipe"></span></span>
     </h2>
   </div>
@@ -197,8 +201,8 @@ h3{font-size:58px;line-height:1.2;font-weight:500}
 <div class="scene duo" data-s="30.40">
   <div class="top-scrim"></div>
   <div class="kick kicker" data-a="30.44,.5,down">для кого</div>
-  <div class="lab" style="top:520px" data-a="30.56,.6,pop"><em>01</em>рестораны</div>
-  <div class="lab" style="top:1186px" data-a="30.92,.6,pop"><em>02</em>отели</div>
+  <div class="lab" style="top:600px" data-a="30.56,.6,pop"><em>01</em>рестораны</div>
+  <div class="lab" style="top:1076px" data-a="30.92,.6,pop"><em>02</em>отели</div>
   <div class="foot" data-a="31.96,.6,up">бьюти и другие сервисные пространства</div>
 </div>
 
@@ -227,7 +231,7 @@ h3{font-size:58px;line-height:1.2;font-weight:500}
 <div class="scene split" data-s="36.93">
   <div class="body">
     <div class="kicker" data-a="36.99,.5,down">как это работает</div>
-    <div class="item mt2" data-a="37.10"><div class="num">03</div><div class="itx" style="font-size:46px">логотип · вышивка · печать</div></div>
+    <div class="item mt2" data-a="37.10"><div class="num">03</div><div class="itx">логотип · вышивка · печать</div></div>
   </div>
 </div>
 
@@ -241,7 +245,7 @@ h3{font-size:58px;line-height:1.2;font-weight:500}
 <!-- J2 · split · с нуля (лекала) -->
 <div class="scene split" data-s="41.16">
   <div class="body">
-    <h1 style="font-size:68px">
+    <h1>
       <span style="display:block" data-a="41.26">Разработаем</span>
       <span style="display:block" data-a="41.48">униформу с нуля</span>
     </h1>
